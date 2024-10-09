@@ -1,0 +1,99 @@
+/* CSS cơ bản cho TodoApp */
+.todo-app {
+    width: 400px;
+    margin: 50px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ff6347;
+    font-size: 24px;
+  }
+  
+  .task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-item.done .task-text {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .task-text {
+    flex: 1;
+  }
+  
+  .task-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Vòng tròn để toggle trạng thái */
+  .circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .circle.done {
+    background-color: #4caf50;
+    border-color: #4caf50;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e53935;
+  }
+  
+  .task-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .task-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .add-task-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .add-task-btn:hover {
+    background-color: #0069d9;
+  }
+  
+  .task-form input[type="date"] {
+    width: 120px;
+  }
+  
