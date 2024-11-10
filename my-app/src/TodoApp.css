@@ -1,99 +1,151 @@
-/* CSS cơ bản cho TodoApp */
+/* TodoApp.css */
+
 .todo-app {
-    width: 400px;
-    margin: 50px auto;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #ff6347;
-    font-size: 24px;
-  }
-  
-  .task-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .task-item.done .task-text {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  .task-text {
-    flex: 1;
-  }
-  
-  .task-details {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* Vòng tròn để toggle trạng thái */
-  .circle {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .circle.done {
-    background-color: #4caf50;
-    border-color: #4caf50;
-  }
-  
-  .delete-btn {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  .delete-btn:hover {
-    background-color: #e53935;
-  }
-  
-  .task-form {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .task-form input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-  }
-  
-  .add-task-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  .add-task-btn:hover {
-    background-color: #0069d9;
-  }
-  
-  .task-form input[type="date"] {
-    width: 120px;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+  color: #555;
+}
+
+.task-title-header,
+.task-description-header,
+.task-date-header {
+  flex: 1;
+  text-align: center;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+}
+
+.task-item:hover {
+  background-color: #f1f1f1;
+}
+
+.task-item.done .task-text,
+.task-item.done .task-description,
+.task-item.done .task-date {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-text,
+.task-description,
+.task-date {
+  flex: 1;
+  text-align: center;
+}
+
+.task-details {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.circle.done {
+  background-color: #007bff;
+}
+
+.edit-btn,
+.delete-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.task-form input,
+.task-form button {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-form input:focus,
+.task-form button:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.add-task-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-task-btn:hover {
+  background-color: #0056b3;
+}
