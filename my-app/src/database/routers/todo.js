@@ -30,7 +30,24 @@ router.post('/', async (req, res) => {
 });
 
 // Cập nhật công việc theo ID (PUT /todos/:id)
+router.put('/:id', async (req, res) => {
+    const { title, description, due_date, completed } = req.body;
+    try {
+        const updatedTodo = await Todo.findByIdAndUpdate(
+            req.params.id,
+            { title, description, due_date, completed },
+            { new: true, runValidators: true }
+        );
 
+        if (!updatedTodo) {
+            return res.status(404).json({ error: 'Không tìm thấy công việc' });
+        }
+
+        res.json(updatedTodo);
+    } catch (err) {
+        res.status(500).json({ error: 'Không thể cập nhật công việc' });
+    }
+});
 
 // Xoá một công việc (DELETE /todos/:id)
 router.delete('/:id', async (req, res) => {
@@ -45,8 +62,7 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-// Đánh dấu tất cả công việc là đã hoàn thành (PUT /todos/markAllCompleted)
-// Đánh dấu một công việc là đã hoàn thành (PUT /todos/:id/complete)
+// Đánh dấu công việc hoàn thành (PUT /todos/:id/complete)
 router.put('/:id/complete', async (req, res) => {
     try {
         const updatedTodo = await Todo.findByIdAndUpdate(
@@ -65,3 +81,6 @@ router.put('/:id/complete', async (req, res) => {
         res.status(500).json({ error: 'Không thể cập nhật công việc' });
     }
 });
+
+// Export router để sử dụng trong file chính
+module.exports = router;
